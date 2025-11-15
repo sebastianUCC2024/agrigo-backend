@@ -1,0 +1,30 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/agrigo_payment}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+bancolombia:
+  api:
+    url: ${BANCOLOMBIA_API_URL:https://api.bancolombia.com/v1/payments}
+    key: ${BANCOLOMBIA_API_KEY:}
+
+nequi:
+  api:
+    url: ${NEQUI_API_URL:https://api.nequi.com.co/payments/v2/payment}
+    key: ${NEQUI_API_KEY:}
+  client:
+    id: ${NEQUI_CLIENT_ID:}
